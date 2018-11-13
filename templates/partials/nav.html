@@ -1,0 +1,19 @@
+{% block head %}
+<div class="grid-x">
+  <div>
+    <div class="expanded button-group">
+      <a class="button small-4" href="/">Index</a>
+      <a class="button small-6" href="/login">Login</a>
+    </div>
+  </div>
+</div>
+       {% with messages = get_flashed_messages() %}
+       {% if messages %}
+       <ul>
+           {% for message in messages %}
+           <li>{{ message }}</li>
+           {% endfor %}
+       </ul>
+       {% endif %}
+     {% endwith %}
+{% endblock %}
