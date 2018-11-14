@@ -7,10 +7,10 @@ app.config['SECRET_KEY'] = 'you-will-never-guess'
 app.debug = True
 
 
-@app.route("/")
-@app.route("/<name>")
+@app.route('/')
+@app.route('/<name>')
 def hello(name=None):
-    return render_template("index.html", n=name)
+    return render_template('index.html', n=name)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
