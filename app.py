@@ -1,6 +1,7 @@
 # coding:utf-8
 from flask import Flask, render_template, request, flash, redirect
 from forms.login import *
+from forms.finance import *
 
 app = Flask(__name__)
 app.debug = True
@@ -24,6 +25,13 @@ def login():
         flash('Login requested for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
     return render_template('login.html', title='Sign In', form=form)
+
+
+@app.route('/finance', methods=['GET', 'POST'])
+def finance_cust():
+    form = SqlForm()
+    return render_template('finance.html', title='gimme money', form=form)
+
 
 
 if __name__ == "__main__":
