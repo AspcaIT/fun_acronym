@@ -3,7 +3,9 @@ Created on Aug 6, 2018
 
 @author: Lanie.Shannon
 '''
-import pyodbc 
+import combine2xlsx
+import xlsxwriter
+import pyodbc
 conn = pyodbc.connect(r'DSN=Workday_EIB;UID=sqllocal;PWD=IhPCIcbts!')
 crsr = conn.cursor()
 
@@ -692,7 +694,6 @@ ORDER BY CUST_ID_FIELD_5, PHONE_ROW_ID_SORT, ADDRESS_ROW_ID_SORT""")
 # Get all rows.
 rows = result.fetchall();
 
-import xlsxwriter
 
 # Create a workbook and add a worksheet.
 workbook = xlsxwriter.Workbook('sno_cust_test_hold.xlsx')
@@ -815,6 +816,5 @@ for row_data in rows:
 
 workbook.close()
 
-import combine2xlsx
 
 combine2xlsx.combine(['put_customer_headers.xlsx', 'sno_cust_test_hold.xlsx'], 'sno_cust_test.xlsx')

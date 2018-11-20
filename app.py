@@ -33,6 +33,12 @@ def finance_cust():
     return render_template('finance.html', title='gimme money', form=form)
 
 
+sql_rep_dict = {
+  "SNO Customer Report": "test/sno_cust_sql_table_test_v3.py",
+  "APCC Customer Report": "test/apcc_cust_sql_table_test.py",
+  "year": 1964
+}
+
 
 if __name__ == "__main__":
     app.run()
