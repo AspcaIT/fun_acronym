@@ -12,10 +12,13 @@
                     {{ form.sql.label }} {{ form.sql(size = 32) }}
                 </p>
                 <p>
-                    {{ form.from_date.label }} {{ form.from_date(class_='datepicker') }}
+                    {{ form.rep_name.label }} {{ form.rep_name(height = 32) }}
                 </p>
                 <p>
-                    {{ form.to_date.label }} {{ form.to_date(class_='datepicker') }}
+                    {{ form.start_date.label }} {{ form.start_date(class_='datepicker') }}
+                </p>
+                <p>
+                    {{ form.end_date.label }} {{ form.end_date(class_='datepicker') }}
                 </p>
                 <p>
                     {{ form.submit(class="button") }}

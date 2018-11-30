@@ -10,11 +10,11 @@ conn = pyodbc.connect(r'DSN=Workday_EIB;UID=sqllocal;PWD=IhPCIcbts!')
 crsr = conn.cursor()
 
 fd = open('sno_cust_report.sql', 'r')
-sqlStmt = fd.read()
+sql_stmt = fd.read()
 fd.close()
 
 # create data
-result = crsr.execute(sqlStmt)
+result = crsr.execute(sql_stmt(start_date))
 
 # Get all rows.
 rows = result.fetchall()

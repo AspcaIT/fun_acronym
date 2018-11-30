@@ -10,11 +10,11 @@ conn = pyodbc.connect(r'DSN=AnToxMRT_SQL;UID=db2admin;PWD=1pe567')
 crsr = conn.cursor()
 
 fd = open('apcc_cust_sql_table_test.sql', 'r')
-sqlStmt = fd.read()
+sql_stmt = fd.read()
 fd.close()
 
 # create data
-result = crsr.execute(sqlStmt)
+result = crsr.execute(sql_stmt)
 
 # Get all rows.
 rows = result.fetchall()
