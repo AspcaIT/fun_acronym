@@ -8,20 +8,23 @@ from xlsxwriter import Workbook
 import combine2xlsx
 
 
-def finance_test(rep_name):
+def finance_test(rep_name, start_date, end_date):
     conn = database_libary(rep_name)
     crsr = conn.cursor()
     print(rep_name)
-    qwerasdf = reference_test_file(rep_name)
-    fd = open(qwerasdf, 'r')
+    rep_path = reference_test_file(rep_name)
+    fd = open(rep_path, 'r')
     sql_stmt = fd.read()
     fd.close()
     # create data
-    result = crsr.execute(sql_stmt)
+    start_string = start_date.strftime('%Y-%m-%d')
+    end_string = end_date.strftime( '%Y-%m-%d' )
+    sql_param = str(sql_stmt).replace('$$start_date', start_string).replace('$$end_date', end_string)
+    result = crsr.execute(sql_param)
     # Get all rows.
     rows = result.fetchall()
     # Create a workbook and add a worksheet.
-    workbook = Workbook(reference_test_file('cust_test_hold.xlsx'))
+    workbook = Workbook(reference_test_file('hold_data.xlsx'))
     worksheet = workbook.add_worksheet()
     row = 1
     col = 0
@@ -32,8 +35,8 @@ def finance_test(rep_name):
     workbook.close()
     # Append data to headings
     header_file = reference_test_file('put_customer_headers.xlsx')
-    sno_cust_hold = reference_test_file('sno_cust_test_hold.xlsx')
-    sno_cust_test = reference_test_file('output.xlsx')
+    sno_cust_hold = reference_test_file('hold_data.xlsx')
+    sno_cust_test = reference_test_file('output_report.xlsx')
     combine2xlsx.combine([header_file, sno_cust_hold], sno_cust_test)
 
 

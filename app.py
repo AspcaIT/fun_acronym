@@ -32,7 +32,7 @@ def login():
 def finance_cust():
     form = SqlForm()
     if request.method == "POST":
-        finance_test(form.rep_name.data, form.start_date.data)
+        finance_test(form.rep_name.data, form.start_date.data, form.end_date.data)
     return render_template('finance.html', title='gimme money', form=form)
 
 
