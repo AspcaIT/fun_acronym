@@ -8,7 +8,7 @@ from xlsxwriter import Workbook
 import combine2xlsx
 
 
-def finance_test(rep_name, start_date, end_date):
+def finance_reports(rep_name, start_date, end_date):
     conn = database_libary(rep_name)
     crsr = conn.cursor()
     print(rep_name)

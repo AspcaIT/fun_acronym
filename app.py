@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, flash, redirect
 from forms.login import *
 from forms.finance import *
-from src.database_connector import finance_test
+from src.database_connector import finance_reports
 
 app = Flask(__name__)
 app.debug = True
@@ -32,7 +32,7 @@ def login():
 def finance_cust():
     form = SqlForm()
     if request.method == "POST":
-        finance_test(form.rep_name.data, form.start_date.data, form.end_date.data)
+        finance_reports( form.rep_name.data, form.start_date.data, form.end_date.data )
     return render_template('finance.html', title='gimme money', form=form)
 
 
