@@ -1,0 +1,33 @@
+{% include "partials/head.html" %}
+{% include "partials/nav.html" %}
+
+{% block content %}
+
+<div class="grid-container full">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="cell small-4 large-4">
+            <h1>Welcome to Sql</h1>
+            <form action="" method="POST">
+                <p>
+                    {{ form.sql.label }} {{ form.sql(size = 32) }}
+                </p>
+                <p>
+                    {{ form.rep_name.label }} {{ form.rep_name(height = 32) }}
+                </p>
+                <p>
+                    {{ form.start_date.label }} {{ form.start_date(class_='datepicker') }}
+                </p>
+                <p>
+                    {{ form.end_date.label }} {{ form.end_date(class_='datepicker') }}
+                </p>
+                <p>
+                    {{ form.submit(class="button") }}
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% include "partials/scripts.html" %}
