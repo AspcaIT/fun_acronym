@@ -4,3 +4,6 @@ http://flask.pocoo.org/docs/1.0/patterns/
 
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 Tutorial is not perfect but has some blueprints for useful things like user login, database, and error handling
+
+Project specific box folder
+https://aspca.app.box.com/folder/57112783173

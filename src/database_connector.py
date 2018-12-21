@@ -2,20 +2,23 @@
 Created on Nov 20, 2018
 @author: Lanie.Shannon
 '''
-import pyodbc
+
 import os
 from xlsxwriter import Workbook
 import combine2xlsx
+import pyodbc
 
 
-def finance_reports(rep_name, start_date, end_date):
-    conn = database_libary(rep_name)
+def finance_reports(report_name, start_date, end_date):
+    credentials = database_library(report_name)
+    conn = pyodbc.connect(credentials)
     crsr = conn.cursor()
-    print(rep_name)
-    rep_path = reference_test_file(rep_name)
+
+    rep_path = reference_test_file(report_name)
     fd = open(rep_path, 'r')
     sql_stmt = fd.read()
     fd.close()
+
     # create data
     start_string = start_date.strftime('%Y-%m-%d')
     end_string = end_date.strftime( '%Y-%m-%d' )
@@ -23,6 +26,8 @@ def finance_reports(rep_name, start_date, end_date):
     result = crsr.execute(sql_param)
     # Get all rows.
     rows = result.fetchall()
+
+    ## New Method / Class called Report Generator
     # Create a workbook and add a worksheet.
     workbook = Workbook(reference_test_file('hold_data.xlsx'))
     worksheet = workbook.add_worksheet()
@@ -44,11 +49,11 @@ def reference_test_file(file_name):
     return os.path.join(os.path.dirname(__file__), "../test/"+file_name)
 
 
-def database_libary(reference):
-    if reference == "sno_cust_report.sql":
-        return pyodbc.connect(r'DSN=Workday_EIB;UID=sqllocal;PWD=IhPCIcbts!')
-    elif reference == "apcc_cust_sql_table_test.sql":
-        return pyodbc.connect(r'DSN=AnToxMRT_SQL;UID=db2admin;PWD=1pe567')
-    else:
-        print('no reference input, use workday or antox')
+def database_library(reference):
+    # Remove hardcoded passwords to ENV file
+    dl = {
+        "sno_cust_report.sql": r'DSN=Workday_EIB;UID=sqllocal;PWD=IhPCIcbts!',
+        "apcc_cust_sql_table_test.sql": r'DSN=AnToxMRT_SQL;UID=db2admin;PWD=1pe567'
+    }
+    return dl[reference]
 
