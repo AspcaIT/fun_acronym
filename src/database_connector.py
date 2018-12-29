@@ -9,8 +9,8 @@ import combine2xlsx
 import pyodbc
 import yaml
 
+# refer to https://aspca.app.box.com/notes/372287586237 for username and passwords.
 databases_dictionary = yaml.load(open('databases.yaml'))
-
 
 # Depreciating and extracting methods.
 def finance_reports(report_name, start_date, end_date):

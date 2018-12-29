@@ -9,6 +9,8 @@ from flask_oidc import OpenIDConnect
 # Setting up flask application
 app = Flask(__name__)
 app.debug = True
+
+# Copy the client_secrets.json.dist to client_secrets.json and refer to https://aspca.app.box.com/notes/372287586237
 app.config.update({
         'SECRET_KEY': 'SomethingNotEntirelySecret',
         'OIDC_CLIENT_SECRETS': './client_secrets.json',

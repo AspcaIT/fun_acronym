@@ -1,0 +1,17 @@
+ROAR:
+  host: MwoMiscAppDB1d
+  database: MiscAppD
+  username:
+  password:
+
+Antox:
+  host: MwoAntoxDb1t
+  database: AntoxMRt
+  username:
+  password:
+
+MWOBI30:
+  host: AspcaMwoBI30
+  database: workday_import_01p
+  username:
+  password:
