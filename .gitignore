@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Configuration files
+client_secrets.json
+databases.yaml
+
 #JetBrains
 .idea
 
