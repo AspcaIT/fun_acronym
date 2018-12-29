@@ -1,7 +1,13 @@
+alembic
 Flask==1.0.2
 flask_wtf
+flask_security
 wtforms
 pyodbc
 xlsxwriter
 combine2xlsx
 pytest
+pyyaml
+sqlalchemy
+flask_security
+flask_oidc

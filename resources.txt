@@ -7,3 +7,33 @@ Tutorial is not perfect but has some blueprints for useful things like user logi
 
 Project specific box folder
 https://aspca.app.box.com/folder/57112783173
+
+ODBC Driver for SQL Server for Mac
+https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017
+
+Using pyodbc
+https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-Windows
+
+Okta Test Env
+https://dev-378841-admin.oktapreview.com
+
+Flask Patterns
+http://flask.pocoo.org/docs/1.0/patterns/
+http://flask.pocoo.org/docs/1.0/patterns/packages/
+http://slides.skien.cc/flask-hacks-and-best-practices/#7
+https://github.com/JackStouffer/Flask-Foundation
+http://flask.pocoo.org/snippets/
+
+Deploying
+http://flask.pocoo.org/docs/1.0/patterns/fabric/
+
+Sql Alchemy
+http://flask.pocoo.org/docs/1.0/patterns/sqlalchemy/
+http://flask.pocoo.org/snippets/39/
+https://stackoverflow.com/questions/4493614/sqlalchemy-equivalent-of-pyodbc-connect-string-using-freetds
+https://www.sqlalchemy.org/library.html#tutorials
+https://www.pythoncentral.io/series/python-sqlalchemy-database-tutorial/
+https://docs.sqlalchemy.org/en/latest/dialects/mssql.html
+
+Alembic for database migration
+https://www.pythoncentral.io/migrate-sqlalchemy-databases-alembic/

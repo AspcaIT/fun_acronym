@@ -3,18 +3,22 @@
   <div>
     <div class="expanded button-group">
       <a class="button small-4" href="/">Index</a>
-      <a class="button small-6" href="/login">Login</a>
+      {% if oidc.user_loggedin %}
+      <a class="button small-6" href="okta/logout">Logout</a>
+      {% else %}
+      <a class="button small-6" href="okta/login">Login</a>
+      {% endif %}
       <a class="button small-6" href="/finance">Finance</a>
     </div>
   </div>
 </div>
-       {% with messages = get_flashed_messages() %}
-       {% if messages %}
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
        <ul>
            {% for message in messages %}
            <li>{{ message }}</li>
            {% endfor %}
        </ul>
        {% endif %}
-     {% endwith %}
+  {% endwith %}
 {% endblock %}

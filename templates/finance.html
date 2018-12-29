@@ -2,7 +2,13 @@
 {% include "partials/nav.html" %}
 
 {% block content %}
-
+<div>
+    <p>Welcome back, <span>{{user.name}}</span>!</p>
+    <p>You have successfully authenticated against your Okta org, and have been redirected back to this application.</p>
+</div>
+<form method="post" action="{{ url_for("logout") }}" class="navbar-form navbar-right">
+    <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
+</form>
 <div class="grid-container full">
     <div class="grid-x grid-margin-x align-center">
         <div class="cell small-4 large-4">
